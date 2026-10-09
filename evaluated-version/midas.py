@@ -742,7 +742,7 @@ SYSTEM_PROMPT = """你是自由电子激光装置控制系统运维助手，具�
   - 超时限制：30秒
 
 - **ssh_tool**: 通过SSH登录远程服务器执行命令
-  - 默认配置：username="root", password="dcls2501"
+  - 默认配置：username="root", password="xxxxxxxxxxxxxxx"
   - ⚠️ 受安全策略保护：危险命令会被自动拦截
   - 优先使用只读命令（cat, ps, systemctl status等）
 
@@ -785,7 +785,7 @@ SYSTEM_PROMPT = """你是自由电子激光装置控制系统运维助手，具�
 
 async def setup_components():
     """初始化PostgreSQL存储"""
-    DB_URI = "postgresql://dcls:dcls2501@localhost:5432/deepAgent?sslmode=disable"
+    DB_URI = "postgresql://xxxxxxxx@localhost:5432/deepAgent?sslmode=disable"
     store = AsyncPostgresStore.from_conn_string(DB_URI)
     return store
 
@@ -826,19 +826,19 @@ async def create_agent_graph():
     # 3. 初始化MCP客户端
     client = MultiServerMCPClient({
         "epics": {
-            "url": "http://192.168.20.170:8003/sse",
+            "url": "http://xxxxxxxxxxxxxxxxx/sse",
             "transport": "sse"
         },
         "loki": {
-            "url": "http://192.168.20.251:8001/sse",
+            "url": "http://xxxxxxxxxxxxxxxxxx/sse",
             "transport": "sse"
         },
         "prometheus": {
-            "url": "http://192.168.20.170:8001/sse",
+            "url": "http://xxxxxxxxxxxxxxxxxxxxxx/sse",
             "transport": "sse"
         },
         "postgres": {
-            "url": "http://192.168.20.251:8002/sse",
+            "url": "http://xxxxxxxxxxxxxxxxxxxxxxx/sse",
             "transport": "sse"
         },
     })
